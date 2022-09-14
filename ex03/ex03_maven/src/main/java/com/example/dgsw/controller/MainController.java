@@ -17,4 +17,9 @@ public class MainController {
         return "main";
     }
 
+    @GetMapping("freeboard")
+    public String freeboard(){
+        return "freeboard";
+    }
+
 }
