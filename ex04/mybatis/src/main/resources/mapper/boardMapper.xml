@@ -9,4 +9,7 @@
         select * from test
     </select>
 
+    <insert id="inserttest" parameterType="com.dgsw.mybatis.dto.Test">
+        insert into test (aa,bb) values (#{aa},#{bb})
+    </insert>
 </mapper>
