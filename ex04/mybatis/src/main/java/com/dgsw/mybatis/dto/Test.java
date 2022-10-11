@@ -14,14 +14,17 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 public class Test {
 
-    // Test(String aa, String bb){
-    //      this.aa = aa;
-    //      this.bb = bb;
-    // }
+//    Test(String aa,String bb){
+//        this.aa = aa;
+//        this.bb = bb;
+//    }
+
+    private Long idx;
 
     @NotEmpty
     @Length(min = 4)
     private String aa;
+
     @NotEmpty
     private String bb;
 

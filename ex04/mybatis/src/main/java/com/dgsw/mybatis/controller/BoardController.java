@@ -28,7 +28,7 @@ public class BoardController {
 
         List<Test> testlist = sqlSessionTemplate.selectList("test.findall");
 
-        model.addAttribute("a", "10");
+        model.addAttribute("a","10");
         model.addAttribute("testlist", testlist);
 
         return "findall";
@@ -41,17 +41,25 @@ public class BoardController {
 
     @PostMapping("insert")
     public String pinsert(@Valid Test test, BindingResult bindingResult, Model model){
-    //    System.out.println(aa);
-    //    System.out.println(bb);
-
-        if(bindingResult.hasErrors()){
+//        System.out.println(aa);
+//        System.out.println(bb);
+        // single quota '
+        if( bindingResult.hasErrors()){
             System.out.println("에러 있음");
-            //model.addAttribute("error", true);
+//            model.addAttribute("error",true);
             return "insert";
         }
 
         System.out.println(test);
         sqlSessionTemplate.insert("test.inserttest", test);
+
+        return "redirect:/board/findall";
+    }
+
+    // 추가 : 글 삭제 처리
+    @PostMapping("delete")
+    public String delete(@RequestParam(required = false) List<Integer> check) {
+        check.forEach(idx -> sqlSessionTemplate.delete("test.delete", idx));
 
         return "redirect:/board/findall";
     }
