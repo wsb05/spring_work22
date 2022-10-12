@@ -56,6 +56,21 @@ public class BoardController {
         return "redirect:/board/findall";
     }
 
+    @GetMapping("update")
+    public String update(int idx, Test test, Model model){
+        System.out.println("idx = "+idx);
+        test = sqlSessionTemplate.selectOne("test.findbyidx", idx);
+        System.out.println(test);
+        model.addAttribute("test",test);
+        return "insert";
+    }
+
+    @PostMapping("update")
+    public String pupdate(Test test){
+        sqlSessionTemplate.update("test.updatetest",test);
+        return "redirect:/board/findall";
+    }
+
     // 추가 : 글 삭제 처리
     @PostMapping("delete")
     public String delete(@RequestParam(required = false) List<Integer> check) {
