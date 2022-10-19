@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
-<head th:replace="common::html-head">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common::html-head">>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -13,19 +12,19 @@
 
     <div>
         <form method="post" th:object="${test}">
-            aa =<input type="text" name="aa"
-                       class="form-control"
-                       th:classappend="${#fields.hasErrors('aa')} ? 'is-invalid'"
-                       th:field="*{aa}">
-            bb =<input type="text" name="bb"
-                       class="form-control"
-                       th:classappend="${#fields.hasErrors('bb')} ? 'is-invalid'"
-                       th:field="*{bb}">
+            aa = <input type="text" name="aa"
+                        class="form-control"
+                        th:classappend="${#fields.hasErrors('aa')} ? 'is-invalid'"
+                        th:field="*{aa}">
             <div th:if="${#fields.hasErrors('aa')}" class="invalid-feedback">
                 aa값이 비어있으면 안됨.
             </div>
+            bb = <input type="text" name="bb"
+                        class="form-control"
+                        th:classappend="${#fields.hasErrors('bb')} ? 'is-invalid'"
+                        th:field="*{bb}">
             <div th:if="${#fields.hasErrors('bb')}" class="invalid-feedback">
-                bb값이 비어있으면 안됨.
+                bb값이 비어 있으면 안됨.
             </div>
             <input type="submit" value="저장" class="btn btn-primary m-3">
         </form>
