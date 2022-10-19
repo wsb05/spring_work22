@@ -17,8 +17,12 @@ public class PersonController {
     PersonRepository personRepository;
 
     @GetMapping("list")
-    public List<Person> list(){
-        return personRepository.findAll();
+    public List<Person> list(String lastname){
+        System.out.println(lastname);
+        if(lastname == null)
+            return personRepository.findAll();
+        else
+            return personRepository.findByLastName(lastname);
     }
 
 }
