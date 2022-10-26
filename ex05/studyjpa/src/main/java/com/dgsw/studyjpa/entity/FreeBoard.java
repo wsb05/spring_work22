@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -20,6 +21,6 @@ public class FreeBoard {
     private String title;
     private String content;
     //작성일자
-    
+    private LocalDateTime wdate;
 
 }

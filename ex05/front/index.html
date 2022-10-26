@@ -16,10 +16,34 @@
     <div id="content">
     </div>
     <input id="mybtn" type="button" value="통신시작"/>
+    <div>
+        <div id="print">
+
+        </div>
+        <input id="list" type="button" value="게시판목록"/>
+    </div>
 </div>
 </body>
+
 </html>
 <script>
+     $('#list').click(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/board/list",
+            data: noparams,
+            success: function (datas) {
+                datas.map(function (data) {
+                    console.log(data);
+                    // $('#content').html(data.firstName + " " + data.lastName + "<br>");
+                })
+            },
+            error: function (result) {
+                alert('실패', result);
+            }
+        });
+    });
+    
     $('#mybtn').click(function(){
         alert('누름');
 
