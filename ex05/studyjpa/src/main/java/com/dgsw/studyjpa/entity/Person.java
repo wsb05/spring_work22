@@ -8,15 +8,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+@Getter // Setter함수
+@Setter // getter함수
+@AllArgsConstructor // 모든파라메타가 있는 생성자
+@NoArgsConstructor // 기본생성자
+@Builder    // builder 객체 생성
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    private String firstName;
+    private String lastName;
 
 }

@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
+// select, insert, update, delete 가 자동으로 만들어 진다...
 public interface PersonRepository extends JpaRepository<Person,Long> {
 
     List<Person> findByLastName(@Param("name") String name);

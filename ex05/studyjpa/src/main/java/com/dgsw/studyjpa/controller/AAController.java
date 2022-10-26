@@ -21,15 +21,15 @@ public class AAController {
     @GetMapping("save")
     public String save(){
         System.out.println("save");
-        //insert 구문이 자동으로 만들어져 실행.
+        // insert 구문이 자동으로 만들어져 실행...
         aaRepository.save(new AA());
-
         return "save";
     }
 
     @GetMapping("savesetting")
     public String savesetting(){
         System.out.println("savesetting");
+        // insert 구문이 자동으로 만들어져 실행...
 
 //        AA aa = new AA();
 //        aa.setAa("aa");
@@ -52,5 +52,4 @@ public class AAController {
     public @ResponseBody List<AA> all(){
         return aaRepository.findAll();
     }
-
 }
