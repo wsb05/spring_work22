@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RequestMapping("board")
@@ -23,7 +24,14 @@ public class FreeBoardController {
         return null;
     }
     @PostMapping("write")
-    public String write(){
+    public String write(String writer,String content) {
+        System.out.println("writer = " + writer);
+        System.out.println("content = " + content);
+        FreeBoard fb = new FreeBoard();
+        fb.setContent(content);
+        fb.setWriter(writer);
+        fb.setWdate(LocalDateTime.now());
+        freeBoardRepository.save(fb);
         return "write";
     }
     @PostMapping("update")
